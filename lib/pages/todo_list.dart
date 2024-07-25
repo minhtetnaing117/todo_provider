@@ -23,7 +23,14 @@ class TodoList extends StatelessWidget {
           itemCount: task.tasks.length,
           itemBuilder: (BuildContext context, index){
           return ListTile(
-            title: Text(task.tasks[index].title),
+            title: Text(
+                task.tasks[index].title,
+              style: TextStyle(
+                decoration: task.tasks[index].isCompleted
+                    ? TextDecoration.lineThrough
+                    : TextDecoration.none,
+              ),
+            ),
             trailing: Wrap(
               children: [
                 Checkbox(
@@ -31,6 +38,12 @@ class TodoList extends StatelessWidget {
                   onChanged: (_) {
                     context.read<SaveTask>().checkTask(index);
                   },
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.delete,
+                  ),
                 ),
               ],
             ),
