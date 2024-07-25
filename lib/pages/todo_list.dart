@@ -40,7 +40,9 @@ class TodoList extends StatelessWidget {
                   },
                 ),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.read<SaveTask>().removeTask(task.tasks[index]);
+                  },
                   icon: const Icon(
                     Icons.delete,
                   ),
