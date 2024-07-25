@@ -5,8 +5,12 @@ class SaveTask extends ChangeNotifier{
   List<Task> _tasks = [
     Task(title: 'Learn Flutter'),
     Task(title: 'Drink Water'),
-    Task(title: 'Cold Water'),
   ];
 
   List<Task> get tasks => _tasks;
+
+  void addTask(Task task){
+    tasks.add(task);
+    notifyListeners();
+  }
 }

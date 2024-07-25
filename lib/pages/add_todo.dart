@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:todo_provider/models/save_task.dart';
+import 'package:todo_provider/models/task_model.dart';
 
 class AddTodo extends StatelessWidget {
   AddTodo({super.key});
@@ -25,7 +28,13 @@ class AddTodo extends StatelessWidget {
             ),
             const SizedBox(height: 15),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                context.read<SaveTask>().addTask(
+                  Task(title: controller.text),
+                );
+                controller.clear();
+                Navigator.of(context).pop();
+              },
               child: const Text('Add'),
             ),
           ],
