@@ -26,7 +26,10 @@ class TodoList extends StatelessWidget {
             title: Text(task.tasks[index].title),
             trailing: Wrap(
               children: [
-                Checkbox(value: value, onChanged: on,)
+                Checkbox(
+                  value: task.tasks[index].isCompleted,
+                  onChanged: (p) {},
+                ),
               ],
             ),
           );

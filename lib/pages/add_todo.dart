@@ -30,7 +30,10 @@ class AddTodo extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 context.read<SaveTask>().addTask(
-                  Task(title: controller.text),
+                  Task(
+                      title: controller.text,
+                    isCompleted: false,
+                  ),
                 );
                 controller.clear();
                 Navigator.of(context).pop();
