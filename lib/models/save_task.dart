@@ -9,12 +9,12 @@ class SaveTask extends ChangeNotifier{
 
   List<Task> get tasks => _tasks;
 
-  void addTask(Task task){
+  void addTask(Task task) {
     tasks.add(task);
     notifyListeners();
-
+  }
     void checkTask(int index){
       tasks[index].isDone();
+      notifyListeners();
     }
   }
-}
