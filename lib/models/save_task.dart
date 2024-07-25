@@ -3,8 +3,8 @@ import 'package:todo_provider/models/task_model.dart';
 
 class SaveTask extends ChangeNotifier{
   List<Task> _tasks = [
-    Task(title: 'Learn Flutter'),
-    Task(title: 'Drink Water'),
+    Task(title: 'Learn Flutter', isCompleted: false),
+    Task(title: 'Drink Water', isCompleted: false),
   ];
 
   List<Task> get tasks => _tasks;
@@ -13,6 +13,8 @@ class SaveTask extends ChangeNotifier{
     tasks.add(task);
     notifyListeners();
 
-    vo
+    void checkTask(int index){
+      tasks[index].isDone();
+    }
   }
 }
